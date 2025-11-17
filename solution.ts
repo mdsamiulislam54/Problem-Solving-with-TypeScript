@@ -78,14 +78,31 @@
 //          Available: ${book.isAvailable ? "Yes":"NO"} `)
 // }
 
-const getUniqueValues = <T>(arr1: T[], arr2: T[]) => {
-    const flatArray = [...arr1, ...arr2];
-    const uniqueArray = flatArray.reduce((uniqueArray: T[], item: T) => {
-        if (!uniqueArray.includes(item)) {
-            uniqueArray.push(item)
-        }
-        return uniqueArray
-    }, [])
-    return uniqueArray
+// const getUniqueValues = <T>(arr1: T[], arr2: T[]):T[] =>  {
+//     const flatArray = [...arr1, ...arr2];
+//     const uniqueArray = flatArray.reduce((uniqueArray: T[], item: T) => {
+//         if (!uniqueArray.includes(item)) {
+//             uniqueArray.push(item)
+//         }
+//         return uniqueArray
+//     }, [])
+//     return uniqueArray
+// }
+
+interface IProduct {
+    name:string
+    price:number
+    quantity:number
+    discount?:number
+}
+
+
+const calculateTotalPrice = (product:IProduct[])=>{
+    const totalPrice = product.reduce((total:number, product:IProduct)=>{
+        const {price,quantity} = product;
+        total += price * quantity;
+        return total
+    },0);
+    return totalPrice
 }
 
