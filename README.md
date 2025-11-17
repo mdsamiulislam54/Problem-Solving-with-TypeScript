@@ -163,3 +163,47 @@ function throwError(message: string): never {
   throw new Error(message);
 }
 ```
+
+# 3. What is the use of enums in TypeScript? Provide an example of a numeric and string enum.
+
+# TypeScript এ Enum এর ব্যবহার
+
+**Enum** (Enumeration) হলো TypeScript-এর একটি সুবিধা যা দিয়ে আমরা **নামযুক্ত constant মানগুলোর একটি সেট** define করতে পারি।  
+এটি আমাদের কোডকে আরও **পঠনযোগ্য ও maintainable** করে তোলে।  
+
+---
+
+## **Enum ব্যবহারের সুবিধা**
+
+1. Magic numbers বা strings ব্যবহারের পরিবর্তে **নামযুক্ত constants** ব্যবহার করা যায়।  
+2. কোডে **বোঝার সুবিধা** বৃদ্ধি পায়।  
+3. TypeScript এর **type system** এর সাথে সুন্দরভাবে কাজ করে।  
+
+---
+
+## ১️⃣ Numeric Enum
+
+Numeric enum-এ মানগুলো default 0 থেকে শুরু হয়, বা আমরা ইচ্ছা অনুযায়ী value assign করতে পারি।  
+
+```ts
+// Default numeric enum
+enum Direction {
+  Up,      
+  Down,   
+  Left,    
+  Right    
+}
+
+let move: Direction = Direction.Up;
+console.log(move); 
+
+enum StatusCode {
+  Success = 200,
+  NotFound = 404,
+  ServerError = 500
+}
+
+let responseStatus: StatusCode = StatusCode.NotFound;
+console.log(responseStatus); 
+
+```
