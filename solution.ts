@@ -33,17 +33,34 @@
 
 // }
 
-interface FilterByRatingType { title: string, rating: number }
+// interface FilterByRatingType { title: string, rating: number }
 
-const filterByRating = (value: FilterByRatingType[]): FilterByRatingType[] => {
-    const newFilterArray = value.reduce((newArray: FilterByRatingType[], item: FilterByRatingType) => {
+// const filterByRating = (value: FilterByRatingType[]): FilterByRatingType[] => {
+//     const newFilterArray = value.reduce((newArray: FilterByRatingType[], item: FilterByRatingType) => {
 
-        if (item.rating > 4) {
-            newArray.push(item)
+//         if (item.rating > 4) {
+//             newArray.push(item)
+//         }
+
+//         return newArray
+//     }, []);
+
+//     return newFilterArray
+// }
+
+interface IUser {
+    id: number,
+    name: string,
+    email: string,
+    isActive: boolean
+}
+
+const filterActiveUsers = (user: IUser[]) => {
+    const activeUserArray = user.reduce((isActiveUser: IUser[], user: IUser) => {
+        if (user.isActive) {
+            isActiveUser.push(user)
         }
-
-        return newArray
-    }, []);
-
-    return newFilterArray
+        return isActiveUser
+    }, [])
+    return activeUserArray
 }
