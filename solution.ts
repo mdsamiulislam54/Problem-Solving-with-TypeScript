@@ -48,19 +48,33 @@
 //     return newFilterArray
 // }
 
-interface IUser {
-    id: number,
-    name: string,
-    email: string,
-    isActive: boolean
+// interface IUser {
+//     id: number,
+//     name: string,
+//     email: string,
+//     isActive: boolean
+// }
+
+// const filterActiveUsers = (user: IUser[]):IUser[] => {
+//     const activeUserArray = user.reduce((isActiveUser: IUser[], user: IUser) => {
+//         if (user.isActive) {
+//             isActiveUser.push(user)
+//         }
+//         return isActiveUser
+//     }, [])
+//     return activeUserArray
+// }
+
+
+interface Book {
+    title: string
+    author: string
+    publishedYear: number
+    isAvailable: boolean
 }
 
-const filterActiveUsers = (user: IUser[]) => {
-    const activeUserArray = user.reduce((isActiveUser: IUser[], user: IUser) => {
-        if (user.isActive) {
-            isActiveUser.push(user)
-        }
-        return isActiveUser
-    }, [])
-    return activeUserArray
+const printBookDetails = (book:Book):void=>{
+    console.log(` Title: ${book.title}, Author: ${book.author}, Published: ${book.publishedYear},
+         Available: ${book.isAvailable ? "Yes":"NO"} `)
 }
+
