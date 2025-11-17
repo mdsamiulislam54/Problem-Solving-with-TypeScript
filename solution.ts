@@ -87,12 +87,16 @@ interface IProduct {
 
 const calculateTotalPrice = (product: IProduct[]) => {
     const totalPrice = product.reduce((total: number, product: IProduct) => {
-        const { price, quantity } = product;
-        total += price * quantity;
+        const { price, quantity ,discount} = product;
+        const discountAmount = discount ?? 0
+        const totalPrice = price * quantity;
+        const discountPrice = (totalPrice* discountAmount)/100
+        total += totalPrice- discountPrice;
         return total
     }, 0);
     return totalPrice
 }
+
 
 
 
