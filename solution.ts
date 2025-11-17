@@ -66,15 +66,26 @@
 // }
 
 
-interface Book {
-    title: string
-    author: string
-    publishedYear: number
-    isAvailable: boolean
-}
+// interface Book {
+//     title: string
+//     author: string
+//     publishedYear: number
+//     isAvailable: boolean
+// }
 
-const printBookDetails = (book:Book):void=>{
-    console.log(` Title: ${book.title}, Author: ${book.author}, Published: ${book.publishedYear},
-         Available: ${book.isAvailable ? "Yes":"NO"} `)
+// const printBookDetails = (book:Book):void=>{
+//     console.log(` Title: ${book.title}, Author: ${book.author}, Published: ${book.publishedYear},
+//          Available: ${book.isAvailable ? "Yes":"NO"} `)
+// }
+
+const getUniqueValues = <T>(arr1: T[], arr2: T[]) => {
+    const flatArray = [...arr1, ...arr2];
+    const uniqueArray = flatArray.reduce((uniqueArray: T[], item: T) => {
+        if (!uniqueArray.includes(item)) {
+            uniqueArray.push(item)
+        }
+        return uniqueArray
+    }, [])
+    return uniqueArray
 }
 
